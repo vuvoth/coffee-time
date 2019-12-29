@@ -39,10 +39,10 @@ if __name__ == "__main__":
     private_key = calculate_private_key(public_key, phi)
 
     message = 1001
-    print("message = ", message)
+    print("message =", message)
 
     encrypt_message = encrypt(message, public_key, n)
-    print("message has been encrypt with public key", encrypt_message)
+    print("message has been encrypt with public key =", encrypt_message)
 
     decrypt_message = decrypt(message, private_key, n)
-    print("message after decrypt", decrypt_message)
+    print("message after decrypt =", decrypt_message)
