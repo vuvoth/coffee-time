@@ -38,7 +38,7 @@ if __name__ == "__main__":
     public_key = e
     private_key = calculate_private_key(public_key, phi)
 
-    message = 42
+    message = 1001
     print("message = ", message)
 
     encrypt_message = encrypt(message, public_key, n)
