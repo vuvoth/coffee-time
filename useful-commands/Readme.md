@@ -35,4 +35,8 @@ du -d 1 -h | sort -rh
 ```
 
 
+# Rewrite commit at ahead
 
+```bash 
+git commit --amend
+```
