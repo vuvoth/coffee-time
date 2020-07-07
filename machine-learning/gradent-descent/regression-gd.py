@@ -1,4 +1,3 @@
-
 import math
 import matplotlib.pyplot as pl
 
@@ -12,13 +11,11 @@ def cost(a, x):
             ans += x[i - 1] * a[i]
     return ans
 
-
 def lossFunction(X, Y, h):
     loss = 0.0
     m = len(X)
     for i in range(m):
         loss += ((cost(h, X[i]) - Y[i]) ** 2) / m * 1.0
-
     return loss
 
 
