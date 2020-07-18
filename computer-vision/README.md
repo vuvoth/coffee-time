@@ -5,9 +5,19 @@
 Create anaconda env 
 
 ```
-conda env create 
+conda create --name opencv # repleace opencv with your option
 ```
 
+
+Download opencv 
+
+```bash 
+cd ~
+wget -O opencv.zip https://github.com/opencv/opencv/archive/4.0.0.zip
+wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.0.0.zip
+```
+
+Build opencv
 ```bash
 export CONDA_HOME=~/opt/anaconda3 # if user. For global, /anaconda3
 export CPLUS_INCLUDE_PATH=$CONDA_HOME/envs/cv/lib/python3.7
@@ -29,10 +39,14 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D BUILD_EXAMPLES=ON ..
 ```
 
-create link cv2 to python env
+Create link cv2 to python env
 ```
+# rename cv2
+cd /usr/local/python/cv2/python-3.7
+sudo mv cv2.cpython-37m-darwin.so cv2.so
+
 cd ~/opt/anaconda3/envs/opencv/lib/python3.7/site-packages/
-ln -s ~/opt/anaconda3/lib/python3.7/cv2 cv2 
+ln -s /usr/local/python/cv2/python-3.7/cv2.so cv2.so
 ```
 
 ## Use jupyter with conda env 
@@ -43,4 +57,10 @@ conda install -c anaconda ipykernel
 Install kernel 
 
 python -m ipykernel install --user --name=<env name>
+
+## Refer 
+
+[Install OpenCV 4.0.1 from Source on MacOS with Anaconda Python 3.7 to Use SIFT and SURF](https://medium.com/repro-repo/install-opencv-4-0-1-from-source-on-macos-with-anaconda-python-3-7-to-use-sift-and-surf-9d4287d6228b)
+
+[Install OpenCV 4 on macOS](https://www.pyimagesearch.com/2018/08/17/install-opencv-4-on-macos/)
 
